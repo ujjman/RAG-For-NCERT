@@ -56,8 +56,8 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 
 youtube_tool = YouTubeSearchTool()
 
-general_template = """You are ChatGPT, a large language model trained by OpenAI.
-Provide concise and accurate answers to general queries. If you don't know the answer, say "I don't know."
+general_template = """You are a specialized bot for greetings related query.
+Provide concise and accurate answers to general and greetings queries. If you don't know the answer, say "I don't know."
 
 Question: {query}"""
 
@@ -235,6 +235,24 @@ async def ask(query: Query):
     except Exception as e:
         logger.error(f"Unexpected error: {str(e)}", exc_info=True)
         raise HTTPException(status_code=500, detail="An unexpected error occurred. Please check the server logs for more information.")
+
+
+
+@app.post("/ask-only-rag")
+async def ask(query: Query):
+    try:
+        logger.info(f"Received query: {query.question}")
+        response = rag_chain(query.question)
+        logger.info(f"Generated response: {response}")
+        return {"question": query.question, "response": response}
+    except ValueError as ve:
+        logger.error(f"ValueError: {str(ve)}")
+        raise HTTPException(status_code=400, detail=str(ve))
+    except Exception as e:
+        logger.error(f"Unexpected error: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=500, detail="An unexpected error occurred. Please check the server logs for more information.")
+
+
 
 @app.post("/simulate-sound-wave/")
 async def simulate_sound_wave(request: SoundWaveRequest):

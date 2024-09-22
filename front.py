@@ -39,6 +39,13 @@ def main():
     youtube_enabled = st.sidebar.checkbox("Enable YouTube Search", value=False)
     wave_enabled = st.sidebar.checkbox("Enable Wave Generator", value=False)
 
+    ask_mode = st.sidebar.radio(
+        "Select ask mode:",
+        ("Ask Normally", "Ask only RAG")
+    )
+    
+    endpoint = "/ask/" if ask_mode == "Ask Normally" else "/ask-only-rag"
+    
     if youtube_enabled and wave_enabled:
         st.sidebar.warning("Please enable only one feature at a time.")
         youtube_enabled = False
@@ -101,17 +108,17 @@ def main():
                     st.warning("The Wave Generator is currently disabled. Please enable it in the sidebar to generate sound waves.")
             else:
                 with st.spinner("Fetching answer..."):
-                    response = requests.post(f"{BACKEND_URL}/ask/", json={"question": query})
+                    response = requests.post(f"{BACKEND_URL}{endpoint}", json={"question": query})
                 if response.status_code == 200:
                     data = response.json()
                     st.session_state['answer'] = data['response']
-                    st.session_state['source'] = data['source']
+                    st.session_state['source'] = data.get('source', 'rag')  # Default to 'rag' if source is not provided
 
                     st.subheader("Answer:")
                     st.write(f"Question: {data['question']}")
                     st.write(f"Answer: {data['response']}")
 
-                    if youtube_enabled and data['source'] == 'rag' and data['response'].lower() != "i don't know":
+                    if youtube_enabled and st.session_state['source'] == 'rag' and data['response'].lower() != "i don't know":
                         with st.spinner("Generating YouTube search title..."):
                             title_response = requests.post(f"{BACKEND_URL}/generate_title/", json={"question": query})
                         if title_response.status_code == 200:
