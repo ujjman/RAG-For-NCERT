@@ -155,6 +155,8 @@ streamlit run front.py
 
 5. Then you will be automatically redirected to the front end. If not then check the cmd terminal for the frontend url and put that in your browser.
 
+6. **Make sure to put the downlaoded NCERT pdf in the same folder as the `back.py` and `front.py` files and rename the pdf as `Sound.pdf`.**
+
   
 
 **If the 1st part when running the code does not work then try to change the port from `8000` to some other port number that is not being used by any other program.**
