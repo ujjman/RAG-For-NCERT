@@ -1,0 +1,16 @@
+streamlit
+requests
+Pillow
+python-dotenv
+fastapi
+pydantic
+langchain
+langchain-community
+langchain-chroma
+langchain-core
+langchain-openai
+langchain-text-splitters
+uvicorn
+numpy
+matplotlib
+openai
