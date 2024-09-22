@@ -42,7 +42,7 @@ app.add_middleware(
 )
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-SARVAM_API_KEY = "eab52b74-5405-45f7-af26-410d99bf849a"
+SARVAM_API_KEY = os.getenv("SARVAM_API_KEY")
 
 if not OPENAI_API_KEY:
     logger.error("OpenAI API key not found in environment variables.")

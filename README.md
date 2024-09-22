@@ -105,13 +105,14 @@ pip install -r requirements.txt
 
 #### OPEN AI API KEY
 
-1. Put your open AI API in the environment variables because the back.py code fetches API key from environment variables
+1. Put your OPENAI and SARVAM API in the environment variables because the back.py code fetches API key from environment variables
 
   
 
 ```
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+SARVAM_API_KEY = os.getenv("SARVAM_API_KEY")
 
 ```
 
@@ -123,7 +124,8 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 ```
 
-OPENAI_API_KEY = "YOUR_API_KEY"
+OPENAI_API_KEY = "YOUR_OPENAI_API_KEY"
+SARVAM_API_KEY = "YOUR_SARVAM_API_KEY
 
 ```
 
