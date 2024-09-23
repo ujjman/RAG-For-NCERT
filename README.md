@@ -96,11 +96,13 @@ Voice functionality has been added to the agent, allowing users to listen to the
 1.  **Environment Variables**: It's recommended to set your OpenAI and Sarvam API keys in environment variables, as the `back.py` code fetches API keys from environment variables.
     
     `OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")`
+    
     `SARVAM_API_KEY = os.getenv("SARVAM_API_KEY")` 
     
 2.  **Direct Assignment**: If setting environment variables is not feasible, you can directly assign the API keys in the `back.py` code.
     
-    `OPENAI_API_KEY = "YOUR_OPENAI_API_KEY"\n`
+    `OPENAI_API_KEY = "YOUR_OPENAI_API_KEY"`
+
     `SARVAM_API_KEY = "YOUR_SARVAM_API_KEY"` 
     
 
