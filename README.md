@@ -100,7 +100,7 @@ Voice functionality has been added to the agent, allowing users to listen to the
     
 2.  **Direct Assignment**: If setting environment variables is not feasible, you can directly assign the API keys in the `back.py` code.
     
-    `OPENAI_API_KEY = "YOUR_OPENAI_API_KEY"`
+    `OPENAI_API_KEY = "YOUR_OPENAI_API_KEY"\n`
     `SARVAM_API_KEY = "YOUR_SARVAM_API_KEY"` 
     
 
