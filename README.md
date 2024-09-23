@@ -172,7 +172,7 @@ if __name__ == "__main__":
 BACKEND_URL = "http://localhost:8000"
 ```
 
-# To try the 2 fetures (Enable YouTube Search and Enable Wave Geberator), follow the below steps - 
+## To try the 2 fetures (Enable YouTube Search and Enable Wave Geberator), follow the below steps - 
 1. Enable any one of them at a time.
 2. Then, if you have selected `Enable YouTube Search` then whenever you type a prompt, the model will generate a meaningful title from the prompt and search the YouTube for videos regarding that title and you will get the videos embedded below your generated answer.
 3. If you have selected `Enable Wave Generator` then, whenevber you type something like `generate sound wave using amplitude as 2, frequency as 23hz and time as 2 seconds` then, a graph of sound wave will be generated using the parameters that you have defined. You can try experimenting with different versions of the prompt like `create a sound wave having freq=23,amp=3,t=0.5`, `simulate wave using t=1 sec, a=3,f=12` etc.
