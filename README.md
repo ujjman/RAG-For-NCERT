@@ -85,11 +85,7 @@ Voice functionality has been added to the agent, allowing users to listen to the
 -   **Python 3.x**
     
 -   Install required dependencies:
-    
-    bash
-    
-    Copy code
-    
+
     `pip install -r requirements.txt` 
     
 
@@ -99,18 +95,10 @@ Voice functionality has been added to the agent, allowing users to listen to the
 
 1.  **Environment Variables**: It's recommended to set your OpenAI and Sarvam API keys in environment variables, as the `back.py` code fetches API keys from environment variables.
     
-    python
-    
-    Copy code
-    
     `OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
     SARVAM_API_KEY = os.getenv("SARVAM_API_KEY")` 
     
 2.  **Direct Assignment**: If setting environment variables is not feasible, you can directly assign the API keys in the `back.py` code.
-    
-    python
-    
-    Copy code
     
     `OPENAI_API_KEY = "YOUR_OPENAI_API_KEY"
     SARVAM_API_KEY = "YOUR_SARVAM_API_KEY"` 
@@ -126,10 +114,6 @@ Voice functionality has been added to the agent, allowing users to listen to the
         
     -   Run the following command:
         
-        bash
-        
-        Copy code
-        
         `python back.py` 
         
 3.  **Start Frontend Interface**:
@@ -137,10 +121,6 @@ Voice functionality has been added to the agent, allowing users to listen to the
     -   Open another command prompt window.
         
     -   Run the following command:
-        
-        bash
-        
-        Copy code
         
         `streamlit run front.py` 
         
@@ -189,18 +169,10 @@ Voice functionality has been added to the agent, allowing users to listen to the
     
     -   **In `back.py`**:
         
-        python
-        
-        Copy code
-        
         `if __name__ == "__main__":
             uvicorn.run(app, host="localhost", port=YOUR_PORT_NUMBER)` 
         
     -   **In `front.py`**:
-        
-        python
-        
-        Copy code
         
         `BACKEND_URL = "http://localhost:YOUR_PORT_NUMBER"` 
         
